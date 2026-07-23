@@ -1,0 +1,13 @@
+.btn {
+	border-radius: 0.25rem;
+	transition: background-color 0.1s, border 0.2s;
+	user-select: none;
+	font-size: 1rem;
+}
+.btn-active { border: 1px solid var(--theme-border-highlighted); }
+.btn-inactive { border: 1px solid var(--theme-border); }
+
+.btn-default { background-color: rgba(0,0,0,0.2); }
+.btn-default:hover { background-color: rgba(0,0,0,0.5); }
+.btn-error { background-color: rgba(200,50,50,0.4); }
+.btn-error:hover { background-color: rgba(200,50,50,0.7); }

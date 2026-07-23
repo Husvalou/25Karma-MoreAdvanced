@@ -1,0 +1,31 @@
+.sortablelist {
+	border-collapse: separate;
+	border-spacing: 0 1rem;
+}
+
+.sortablelist th {
+	padding: 0 0.75rem;
+	white-space: nowrap;
+	user-select: none;
+	vertical-align: middle;
+	text-align: left;
+}
+
+.sortablelist td {
+	border: 1px solid var(--theme-border);
+	border-style: solid none;
+	padding: 0.75rem;
+	vertical-align: middle;
+	white-space: nowrap;
+	background: var(--theme-secondary);
+}
+.sortablelist td:first-child {
+	border-left-style: solid;
+	border-top-left-radius: 0.25rem; 
+	border-bottom-left-radius: 0.25rem;
+}
+.sortablelist td:last-child {
+	border-right-style: solid;
+	border-bottom-right-radius: 0.25rem; 
+	border-top-right-radius: 0.25rem; 
+}

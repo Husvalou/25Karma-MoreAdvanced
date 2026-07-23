@@ -1,0 +1,32 @@
+.settings {
+	background-color: var(--theme-secondary);
+	/* Top and bottom inset box shadows only */
+	border-top: 1px solid var(--theme-border);
+	border-bottom: 1px solid var(--theme-border);
+}
+.settings input {
+	padding: 0.5rem;
+	background: var(--theme-primary);
+	border: 1px solid var(--theme-border);
+	border-radius: 0.25rem;
+}
+.settings input::placeholder {
+	color: var(--theme-input-placeholder);
+}
+.settings input:focus {
+	outline-width: 0;
+}
+
+.settings section {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@media ( max-width: 640px ) { 
+	.settings section {
+		flex-direction: column;
+		align-items: start;
+	}
+}

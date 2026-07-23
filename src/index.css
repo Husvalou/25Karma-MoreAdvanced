@@ -1,0 +1,339 @@
+@font-face {
+	font-family: "Minecraft";
+	src: url("/src/fonts/minecraft.woff2") format("woff2"),
+	     url("/src/fonts/minecraft.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	size-adjust: 115%;
+}
+
+@font-face {
+	font-family: "Minecraft";
+	src: url("/src/fonts/minecraft-bold.woff2") format("woff2"),
+	     url("/src/fonts/minecraft-bold.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	size-adjust: 115%;
+}
+
+@font-face {
+	font-family: "Minecraft";
+	src: url("/src/fonts/minecraft-italic.woff2") format("woff2"),
+	     url("/src/fonts/minecraft-italic.ttf") format("truetype");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+	size-adjust: 115%;
+}
+
+@font-face {
+	font-family: "Minecraft";
+	src: url("/src/fonts/minecraft-bold-italic.woff2") format("woff2"),
+	     url("/src/fonts/minecraft-bold-italic.ttf") format("truetype");
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+	size-adjust: 115%;
+}
+
+:root {
+    /* below are a few color schemes since the original theme blends in with the gray text shadows */
+    
+    /* Dark Graphite */
+	/*
+	--theme-text: #f3f4f5;
+	--theme-text-highlighted: #d2d4d6;
+	--theme-primary: #33373b;
+	--theme-secondary: #292d31;
+	--theme-input-placeholder: #8f959b;
+	--theme-border: #1e2226;
+	--theme-border-highlighted: #f5f;
+	--theme-shadow: rgba(0, 0, 0, 0.42);
+	--theme-scrollbar-thumb: #23272b;
+	--theme-scrollbar-track: #30353a;
+	*/
+	
+	/* Graphite */
+	/*
+	--theme-text: #f6f7f8;
+	--theme-text-highlighted: #d8d9da;
+	--theme-primary: #3b3f44;
+	--theme-secondary: #2f3337;
+	--theme-input-placeholder: #9aa0a6;
+	--theme-border: #24282c;
+	--theme-border-highlighted: #f5f;
+	--theme-shadow: rgba(0, 0, 0, 0.35);
+	--theme-scrollbar-thumb: #2a2e32;
+	--theme-scrollbar-track: #3a3f44;
+	*/
+	
+	/* Soft Default (this doesn't really fix the contrast issue, but is easier on the eyes) */
+	/*
+    --theme-text: #f6f6f6;
+	--theme-text-highlighted: #d6d6d6;
+	--theme-primary: #3d3d3d;
+	--theme-secondary: #313131;
+	--theme-input-placeholder: #949494;
+	--theme-border: #242424;
+	--theme-border-highlighted: #f5f;
+	--theme-shadow: rgba(0, 0, 0, 0.5);
+	--theme-scrollbar-thumb: #2b2b2b;
+	--theme-scrollbar-track: #3a3a3a;
+	*/
+	
+	/* Default (this is the original color scheme) */
+	--theme-text: white;
+	--theme-text-highlighted: #ccc;
+	--theme-secondary: #2b2b2b;
+	--theme-primary: #3b3b3b;
+	--theme-input-placeholder: #777;
+	--theme-border: #1b1b1b;
+	--theme-border-highlighted: #f5f;
+	--theme-shadow: #1b1b1b;
+	--theme-scrollbar-thumb: #1b1b1b;
+	--theme-scrollbar-track: #333;
+}
+
+/*
+ * Under 640px width, the font size is 12px
+ * Over 1240px width, the font size is 18px
+ * In between 640px and 1240px, the font size increases linearly from 12px to 18px
+ */
+html { font-size: 13px; background: var(--theme-primary);}
+/* Assuming that anything under a width of 640px is a mobile device */
+@media (min-width: 640px) { html { font-size: calc(13px + (100vw - 640px) / 300); } }
+/* Cap it off at a width of 1280px */
+@media (min-width: 1240px) { html { font-size: 15px; } }
+
+body { margin: 0; color: var(--theme-text); }
+div, span, section, h1, h2, p, a, ul, input, button, footer { 
+	padding: 0;
+	margin: 0;
+	border: 0;
+	text-decoration: none; 
+	color: inherit; 
+	box-sizing: border-box; 
+	font-size: 100%;
+	font-weight: inherit;
+	font-family: Helvetica;
+}
+
+p { line-height: 1.4; }
+input::selection {
+	background: var(--theme-border-highlighted);
+}
+
+button {
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
+button:focus {
+	outline-width: 0;
+}
+kbd {
+	color: var(--theme-text);
+	border: 1px solid var(--theme-text);
+	border-radius: 0.25rem;
+	padding-left: 0.5rem; 
+	padding-right: 0.5rem;
+}
+
+/* Styled scrollbar */
+::-webkit-scrollbar { width: 1rem; height: 1rem; }
+::-webkit-scrollbar-track { 
+	box-shadow: inset 0 0 1rem 1rem var(--theme-scrollbar-track); 
+	border-radius: 0.5rem; 
+	border: solid 0.2rem transparent;
+}
+::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 1rem 1rem var(--theme-scrollbar-thumb); 
+	border-radius: 0.5rem; 
+	border: solid 0.2rem transparent;
+}
+::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
+#root { min-height: 100vh; overflow-x: hidden; }
+.align-items-center { align-items: center; }
+.align-items-end { align-items: flex-end; }
+.align-items-start { align-items: flex-start; }
+.align-items-stretch { align-items: stretch; }
+.bg-cover { background-size: cover; }
+.bg-fixed { background-attachment: fixed; }
+.border { border: 1px solid var(--theme-border); }
+.box-shadow { box-shadow: 0 0.25rem 0.25rem var(--theme-shadow); }
+.container { margin-right: auto; margin-left: auto; max-width: 1000px; padding: 0 1rem; width: 100%; }
+.cursor-grab:hover { cursor: -webkit-grab; cursor: grab; }
+.cursor-grabbing:hover { cursor: -webkit-grabbing; cursor: grabbing; }
+.cursor-help:hover { cursor: help; }
+.cursor-pointer:hover { cursor: pointer; }
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+.flex-3 { flex: 3; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+.font-bold { font-weight: bold; }
+.font-lg { font-size: 1.75rem; }
+.font-md { font-size: 1.25rem; }
+.font-minecraft { 
+	font-family: "Minecraft";
+}
+.font-sm { font-size: 1rem; }
+.font-xl { font-size: 2.5rem; }
+.font-xxl { font-size: 3.5rem; }
+.font-xs { font-size: 0.75rem; }
+.h-0 { height: 0; }
+.h-100 { height: 100%; }
+.h-flex { display: flex; flex-direction: row; }
+.hidden { visibility: hidden; }
+.justify-content-around { justify-content: space-around; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-center { justify-content: center; }
+.justify-content-end { justify-content: flex-end; }
+.justify-content-start { justify-content: flex-start; }
+.justify-content-stretch { justify-content: stretch; }
+.link { color: auto; text-decoration: underline solid auto; } 
+.link:hover {color: var(--theme-text-highlighted); text-decoration: underline solid var(--theme-text-highlighted); }
+.m-0 { margin: 0; }
+.m-1 { margin: 0.5rem; }
+.m-2 { margin: 1rem; }
+.m-3 { margin: 2rem; }
+.m-4 { margin: 4rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 2rem; }
+.mb-4 { margin-bottom: 4rem; }
+.ml-1 { margin-left: 0.5rem; }
+.ml-2 { margin-left: 1rem; }
+.ml-auto { margin-left: auto; }
+.mr-1 { margin-right: 0.5rem; }
+.mr-2 { margin-right: 1rem; }
+.mr-5 { margin-right: 8rem; }
+.mr-auto { margin-right: auto; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 2rem; }
+.mt-4 { margin-top: 4rem; }
+.mt-auto { margin-top: auto; }
+.mx-1 { margin-left: 0.5rem; margin-right: 0.5rem; }
+.mx-2 { margin-left: 1rem; margin-right: 1rem; }
+.mx-3 { margin-left: 2rem; margin-right: 2rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.my-1 { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+.my-2 { margin-top: 1rem; margin-bottom: 1rem; }
+.my-3 { margin-top: 2rem; margin-bottom: 2rem; }
+.my-4 { margin-top: 4rem; margin-bottom: 4rem; }
+.my-auto { margin-top: auto; margin-bottom: auto; }
+.overflow-hidden { overflow: hidden; }
+.overflow-x { overflow-x: auto; }
+.overflow-y { overflow-y: auto; }
+.nowrap { white-space: nowrap; }
+.nopointer { pointer-events: none; }
+.position-absolute { position: absolute; }
+.position-relative { position: relative; }
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 2rem; }
+.pb-1 { padding-bottom: 0.5rem; }
+.pb-2 { padding-bottom: 1rem; }
+.pb-3 { padding-bottom: 2rem; }
+.pb-4 { padding-bottom: 4rem; }
+.pl-1 { padding-left: 0.5rem; }
+.pl-2 { padding-left: 1rem; }
+.pl-3 { padding-left: 2rem; }
+.pr-1 { padding-right: 0.5rem; }
+.pr-2 { padding-right: 1rem; }
+.pr-3 { padding-right: 2rem; }
+.pr-4 { padding-right: 4rem; }
+.pt-1 { padding-top: 0.5rem; }
+.pt-2 { padding-top: 1rem; }
+.pt-3 { padding-top: 2rem; }
+.pt-4 { padding-top: 4rem; }
+.pt-5 { padding-top: 8rem; }
+.px-1 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-2 { padding-left: 1rem; padding-right: 1rem; }
+.px-3 { padding-left: 2rem; padding-right: 2rem; }
+.py-1 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-2 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-3 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-4 { padding-top: 4rem; padding-bottom: 4rem; }
+.py-5 { padding-top: 8rem; padding-bottom: 8rem; }
+.rounded { border-radius: 0.25rem; }
+.td-shrink { width: 1%; white-space: nowrap; }
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-shadow { text-shadow: 0rem 0.25rem 0.25rem var(--theme-shadow); }
+.text-light-shadow { text-shadow: 0rem 0rem 0.5rem var(--theme-text); }
+.top-0 { top: 0; }
+.underline { text-decoration: underline; }
+.user-select-none { user-select: none; }
+.v-flex { display: flex; flex-direction: column; }
+.vh-100 { height: 100vh; }
+.vw-100 { width: 100vw; }
+.w-100 { width: 100%; }
+.w-50 { width: 50%; }
+.z-top { z-index: 1030; }
+.z-0 { z-index: 0; }
+
+/* text colors */
+.c-darkred, .c-DARK_RED { color: #a00; }
+.c-red, .c-RED { color: #f55; }
+.c-gold, .c-GOLD { color: #fa0; }
+.c-yellow, .c-YELLOW { color: #ff5; }
+.c-darkgreen, .c-DARK_GREEN { color: #0a0; }
+.c-green, .c-GREEN { color: #5f5; }
+.c-aqua, .c-AQUA { color: #5ff; }
+.c-darkaqua, .c-DARK_AQUA { color: #0aa; }
+.c-darkblue, .c-DARK_BLUE { color: #00a; }
+.c-blue, .c-BLUE { color: #55f; }
+.c-pink, .c-LIGHT_PURPLE { color: #f5f; }
+.c-purple, .c-DARK_PURPLE { color: #a0a }
+.c-white, .c-WHITE { color: #fff; }
+.c-gray, .c-GRAY { color: #aaa; }
+.c-darkgray, .c-DARK_GRAY { color: #555; }
+.c-black, .c-BLACK { color: #000; }
+.c-brown { color: #963; }
+
+/* text shadows */
+.c-shadow { text-shadow: 0.1em 0.1em color-mix(in srgb, currentColor 25%, #000 75%); }
+
+.c-rainbow { 
+	background-image: linear-gradient(to left, #a0a, #f5f, #5ff, #5f5, #ff5, #fa0, #f55);   
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent; 
+}
+
+/* text modifiers */
+/* .c-magic {} */
+.c-bold { font-weight: bold; }
+.c-strikethrough { text-decoration: line-through; }
+.c-underline { text-decoration: underline; }
+.c-strikethrough.c-underline { text-decoration: line-through underline; } /* used so strikethrough and underline can be combined */
+.c-italic { font-style: italic; }
+span.c-reset { color: #fff; font-weight: normal; text-decoration: none currentcolor solid; font-style: normal; }
+
+/* background colors */
+.bg-darkred, .bg-DARK_RED { background-color: #a00; }
+.bg-red, .bg-RED { background-color: #f55; }
+.bg-gold, .bg-GOLD { background-color: #fa0; }
+.bg-yellow, .bg-YELLOW { background-color: #ff5; }
+.bg-darkgreen, .bg-DARK_GREEN { background-color: #0a0; }
+.bg-green, .bg-GREEN { background-color: #5f5; }
+.bg-aqua, .bg-AQUA { background-color: #5ff; }
+.bg-darkaqua, .bg-DARK_AQUA { background-color: #0aa; }
+.bg-darkblue, .bg-DARK_BLUE { background-color: #00a; }
+.bg-blue, .bg-BLUE { background-color: #55f; }
+.bg-pink, .bg-LIGHT_PURPLE { background-color: #f5f; }
+.bg-purple, .bg-DARK_PURPLE { background-color: #a0a }
+.bg-white, .bg-WHITE { background-color: #fff; }
+.bg-gray, .bg-GRAY { background-color: #aaa; }
+.bg-darkgray, .bg-DARK_GRAY { background-color: #555; }
+.bg-black, .bg-BLACK { background-color: #000; }
+.bg-brown { background-color: #963; }
+.bg-rainbow { background: repeating-linear-gradient(to right, #f55, #fa0, #ff5, #5f5, #5ff, #f5f, #a0a, #f55 16rem); }

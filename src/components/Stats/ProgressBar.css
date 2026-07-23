@@ -1,0 +1,11 @@
+.progressbar {
+	display: flex;
+	overflow: hidden;
+	border-radius: 0.25rem;
+	min-width: 100px;
+}
+
+.progressbar-remaining {
+	flex-grow: 1;
+	background: rgba(0,0,0,0.4);
+}

@@ -1,0 +1,29 @@
+.accordion {
+	overflow: hidden;
+	border-radius: 0.25rem;
+	border: 1px solid var(--theme-border);
+	background: var(--theme-secondary);
+}
+
+.accordion-body {
+	width: fit-content;
+	min-width: 100%;
+}
+
+.accordion-header {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	user-select: none;
+	width: 100%;
+}
+
+.accordion-collapse-button {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex: 1;
+	cursor: pointer;
+	overflow: hidden;
+	padding-left: 1rem;
+}
