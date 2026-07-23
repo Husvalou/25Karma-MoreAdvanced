@@ -1,5 +1,6 @@
 export const APP = {
-	apiUrl: "http://localhost:8080",
+	apiUrl: import.meta.env.VITE_API_URL || "http://localhost:8080",
+	apiKey: import.meta.env.VITE_API_KEY || "66eaedcb-9315-4574-bc19-ae19506a07b0",
 	appName: "25Karma",
 	appNickname : "+25 Karma!",
 	documentTitle: "25Karma",
