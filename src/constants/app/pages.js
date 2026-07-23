@@ -1,5 +1,6 @@
-import { FaAward, FaUser, FaShieldAlt, FaScroll, FaPaw } from 'react-icons/fa';
+import { FaAward, FaUser, FaShieldAlt, FaScroll, FaPaw, FaTrophy } from 'react-icons/fa';
 import * as Page from 'src/pages';
+
 export const PAGES = [
 	{
 		name: 'Player',
@@ -16,6 +17,15 @@ export const PAGES = [
 		tags: ['guild', 'g'],
 		component: Page.GuildPage,
 		icon: FaShieldAlt
+	},
+	{
+		name: 'Leaderboard',
+		about: 'Explore top Hypixel player and guild leaderboards',
+		path: 'leaderboard',
+		tags: ['leaderboard', 'lb'],
+		component: Page.LeaderboardPage,
+		isDirectLink: true,
+		icon: FaTrophy
 	},
 	{
 		name: 'Achievements',
@@ -41,4 +51,4 @@ export const PAGES = [
 		component: Page.PetsPage,
 		icon: FaPaw
 	},
-]
+];

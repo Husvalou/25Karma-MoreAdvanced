@@ -17,7 +17,19 @@ export function useAPIContext(slug, type) {
 	useEffect(() => {
 		async function fetchFromAPI() {
 			const href = window.location.href;
-			const url = `${APP.apiUrl}/${type}/${slug}`;
+			let url;
+			const apiKey = APP?.apiKey || "66eaedcb-9315-4574-bc19-ae19506a07b0";
+			if (APP.apiUrl && APP.apiUrl.includes('api.hypixel.net')) {
+				if (type === 'player') {
+					url = `https://api.hypixel.net/v2/player?name=${slug}&key=${apiKey}`;
+				} else if (type === 'guild') {
+					url = `https://api.hypixel.net/v2/guild?player=${slug}&key=${apiKey}`;
+				} else {
+					url = `https://api.hypixel.net/v2/${type}?key=${apiKey}`;
+				}
+			} else {
+				url = `${APP.apiUrl}/${type}/${slug}`;
+			}
 			return httpGet(url, { headers: await getClientHeaders() })
 				.then((response) => response.json())
 				.then((json) => {
